@@ -239,7 +239,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      {/*<section className="team-section">
+      <section className="team-section">
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">Meet Our Team</h2>
@@ -248,7 +248,7 @@ const About = () => {
             </p>
           </div>
           <div className="team-grid">
-            {teamMembers.map((member) => (
+            {teamMembers.slice(0, 3).map((member) => (
               <div key={member.id} className="team-card">
                 <div className="member-image">
                   <img src={member.image} alt={member.name} />
@@ -267,7 +267,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Certifications */}
       <section className="certifications-section">
@@ -311,8 +311,8 @@ const About = () => {
               <Link to="/contact" className="btn btn-primary">
                 Contact Us
               </Link>
-              <Link to="/services" className="btn btn-outline">
-                Our Services
+              <Link to="/products" className="btn btn-outline">
+                Our Products
               </Link>
             </div>
           </div>

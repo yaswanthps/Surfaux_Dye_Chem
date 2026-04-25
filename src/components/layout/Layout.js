@@ -4,13 +4,13 @@ import Header from './Header';
 import Footer from './Footer';
 import './Layout.css';
 
-const Layout = ({ children, onLogout }) => {
+const Layout = ({ children }) => {
   const location = useLocation();
   const isHome = location.pathname === '/';
 
   return (
     <div className={`layout ${isHome ? 'layout--home' : ''}`}>
-      <Header onLogout={onLogout} />
+      <Header />
       <main className="main-content">
         {children}
       </main>

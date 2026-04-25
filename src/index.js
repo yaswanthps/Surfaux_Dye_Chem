@@ -3,21 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { CartProvider } from './context/CartContext';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-
-// 👇 Replace this with your Google Client ID from https://console.cloud.google.com/
-const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID || 'YOUR_GOOGLE_CLIENT_ID_HERE';
-console.log('Google Client ID Loaded:', GOOGLE_CLIENT_ID);
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
-      <CartProvider>
-        <App />
-      </CartProvider>
-    </GoogleOAuthProvider>
+    <App />
   </React.StrictMode>
 );
 

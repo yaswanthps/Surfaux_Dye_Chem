@@ -15,20 +15,10 @@ const mockSeed = projects.map(p => ({
 
 /**
  * useProducts — reads live product data from the backend API.
- * Falls back to adminProducts localStorage (seeded by AdminContext),
- * then falls back to mockData if nothing is available yet.
+ * Falls back to mockData if nothing is available yet.
  */
 export const useProducts = () => {
-    const [products, setProducts] = useState(() => {
-        try {
-            const saved = localStorage.getItem('adminProducts');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-            }
-        } catch { }
-        return mockSeed;
-    });
+    const [products, setProducts] = useState(mockSeed);
 
     // Fetch fresh data from the backend
     useEffect(() => {
@@ -38,25 +28,9 @@ export const useProducts = () => {
                 if (data.success && Array.isArray(data.products) && data.products.length > 0) {
                     const normalized = data.products.map(p => ({ ...p, id: p._id || p.id }));
                     setProducts(normalized);
-                    localStorage.setItem('adminProducts', JSON.stringify(normalized));
                 }
             })
-            .catch(() => { }); // silent fallback: stay with localStorage
-    }, []);
-
-    // Also listen for storage changes (e.g. admin saves in another tab)
-    useEffect(() => {
-        const onStorage = () => {
-            try {
-                const saved = localStorage.getItem('adminProducts');
-                if (saved) {
-                    const parsed = JSON.parse(saved);
-                    if (Array.isArray(parsed)) setProducts(parsed);
-                }
-            } catch { }
-        };
-        window.addEventListener('storage', onStorage);
-        return () => window.removeEventListener('storage', onStorage);
+            .catch(() => { }); // silent fallback to mockSeed
     }, []);
 
     return products;

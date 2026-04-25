@@ -408,13 +408,18 @@ a:hover {
 }
 
 /* Focus styles for keyboard navigation */
-button:focus,
-a:focus,
+button:focus-visible,
+a:focus-visible,
 input:focus,
 textarea:focus,
 select:focus {
   outline: 2px solid var(--secondary-green);
   outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* Print styles */
