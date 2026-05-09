@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiSun, FiMail, FiPhone, FiMapPin, FiLinkedin, FiTwitter, FiFacebook } from 'react-icons/fi';
+import logo from '../../assets/logo.svg';
 import './Footer.css';
 
 const Footer = () => {
@@ -10,9 +11,8 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <div className="footer-logo">
-            <FiSun className="footer-logo-icon" />
-            <span className="footer-logo-text">SurfauxDyeChem</span>
+          <div className="footer-logo" style={{ marginBottom: '1rem' }}>
+            <img src={logo} alt="SurfauxDyeChem Logo" className="footer-logo-img" style={{ height: '35px', width: 'auto', maxWidth: '100%', objectFit: 'contain' }} />
           </div>
           <p className="footer-description">
             Premium chemical manufacturing partner delivering safe, compliant, and sustainable

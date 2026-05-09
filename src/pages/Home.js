@@ -93,13 +93,13 @@ const Home = () => {
         <div className="home-hero-content">
           <div className="home-hero-left">
 
-            <span className="home-hero-eyebrow">Precision manufacturing. Sustainable outcomes.</span>
+            <span className="home-hero-eyebrow">BRIDGING MANUFACTURERS. DELIVERING SUSTAINABLE CHEMISTRY.</span>
             <h1 className="home-hero-title">
-              Innovating Chemistry for a
+              Connecting businesses with advanced Chemistry for a
               <span className="home-hero-highlight"> Sustainable Future</span>
             </h1>
             <p className="home-hero-subtitle">
-              Trusted by industrial partners for safety, quality, and innovation across every batch.
+               Trusted by customers for reliable and sustainable chemical solutions for a better productivity and profitability.
             </p>
             <p className="home-hero-description">
               We deliver advanced chemical manufacturing with a focus on compliance, operational excellence, and eco-conscious performance.
@@ -111,20 +111,9 @@ const Home = () => {
               <Link to="/contact" className="home-btn home-btn-secondary">
                 Contact Us
               </Link>
-            </div>
-            <div className="home-hero-highlights">
-              <div className="hero-highlight">
-                <span className="highlight-value">30+ Years</span>
-                <span className="highlight-label">Manufacturing expertise</span>
-              </div>
-              <div className="hero-highlight">
-                <span className="highlight-value">ISO 9001</span>
-                <span className="highlight-label">Quality-led operations</span>
-              </div>
-              <div className="hero-highlight">
-                <span className="highlight-value">Global Reach</span>
-                <span className="highlight-label">Reliable supply network</span>
-              </div>
+            
+              
+              
             </div>
           </div>
         </div>

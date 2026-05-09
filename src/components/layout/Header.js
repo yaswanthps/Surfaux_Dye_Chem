@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiMenu, FiX, FiSun } from 'react-icons/fi';
+import logo from '../../assets/logo.svg';
 import './Header.css';
 
 const Header = () => {
@@ -38,9 +39,8 @@ const Header = () => {
       <nav className="nav">
         <div className="nav-container">
           {/* Logo */}
-          <Link to="/" className="nav-logo">
-            <FiSun className="logo-icon" />
-            <span className="logo-text"> SurfauxDyeChem</span>
+          <Link to="/" className="nav-logo" style={{ padding: '0.5rem 0' }}>
+            <img src={logo} alt="SurfauxDyeChem Logo" className="logo-img" style={{ height: '45px', width: 'auto' }} />
           </Link>
 
           {/* Desktop Navigation */}

@@ -39,60 +39,128 @@
   overflow: hidden;
 }
 
-/* Top Info Section - Three Columns */
-.contact-info-top {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-xxl);
-  max-width: var(--container-max-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 var(--container-padding);
-}
-
-.info-card {
-  text-align: center;
-  padding: var(--spacing-xl);
-  background: linear-gradient(135deg, rgba(21, 106, 106, 0.05), rgba(63, 183, 166, 0.08));
+/* Company Contact Card */
+.company-contact-card {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xxl);
+  background: var(--white);
   border-radius: var(--border-radius-lg);
-  box-shadow: 0 4px 20px rgba(11, 47, 59, 0.08);
+  box-shadow: 0 10px 40px rgba(11, 47, 59, 0.08);
   border: 1px solid rgba(63, 183, 166, 0.15);
-  transition: all var(--transition-normal);
+  padding: var(--spacing-xl) var(--spacing-xxl);
 }
 
-.info-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(11, 47, 59, 0.15);
-  background: linear-gradient(135deg, rgba(21, 106, 106, 0.08), rgba(63, 183, 166, 0.12));
+.contact-card-top, .contact-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
 }
 
-.info-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, var(--secondary-green), var(--accent-green));
-  border-radius: 50%;
+.contact-card-divider {
+  height: 1px;
+  background: rgba(11, 47, 59, 0.1);
+  margin: var(--spacing-xl) 0;
+}
+
+.contact-brand {
+  flex: 0 0 250px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto var(--spacing-md);
-  color: var(--white);
+}
+
+.contact-brand-logo {
+  max-width: 100%;
+  height: auto;
+  max-height: 80px;
+}
+
+.contact-address {
+  flex: 1;
+}
+
+.contact-address h3 {
   font-size: 1.5rem;
-  box-shadow: 0 8px 25px rgba(21, 106, 106, 0.3);
+  font-weight: 700;
+  color: #000;
+  margin-bottom: var(--spacing-xs);
+  letter-spacing: 0.5px;
 }
 
-.info-card h3 {
-  font-size: 1.25rem;
+.contact-address p {
+  color: #333;
+  margin: 2px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.contact-link {
   color: var(--primary-green);
-  margin-bottom: var(--spacing-sm);
-  font-weight: 600;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: var(--spacing-sm);
+  transition: color var(--transition-fast);
 }
 
-.info-card p {
-  color: var(--medium-gray);
-  line-height: 1.6;
-  margin: 0;
-  font-size: 0.95rem;
+.contact-link:hover {
+  color: var(--accent-green);
+  text-decoration: underline;
+}
+
+.contact-card-bottom {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.partner-brand {
+  flex: 1;
+}
+
+.partner-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.infinity-symbol {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #9e754b; /* Brown color from the image */
+  line-height: 1;
+}
+
+.erca-text {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #111;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.partner-subtitle {
+  font-size: 0.8rem;
+  color: #555;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  border-top: 1px solid #ccc;
+  padding-top: 5px;
+  display: inline-block;
+}
+
+.contact-numbers {
+  flex: 0 0 200px;
+  border-left: 2px solid #555;
+  padding-left: var(--spacing-lg);
+}
+
+.contact-numbers p {
+  color: #111;
+  font-weight: 500;
+  margin: 4px 0;
+  font-size: 1rem;
 }
 
 /* Form Container Layout */
@@ -294,9 +362,17 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .contact-info-top {
-    grid-template-columns: 1fr;
+  .contact-card-top, .contact-card-bottom {
+    flex-direction: column;
+    text-align: center;
     gap: var(--spacing-lg);
+  }
+
+  .contact-numbers {
+    border-left: none;
+    border-top: 2px solid #555;
+    padding-left: 0;
+    padding-top: var(--spacing-md);
   }
 }
 
@@ -310,7 +386,7 @@
     gap: var(--spacing-sm);
   }
 
-  .info-card {
+  .company-contact-card {
     padding: var(--spacing-lg);
   }
 

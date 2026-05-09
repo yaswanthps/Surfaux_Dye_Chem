@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiUser, FiMessageSquare } from 'react-icons/fi';
 import HeroSection from '../components/HeroSection';
 import { API_BASE_URL } from '../api/config';
+import logo from '../assets/logo.svg';
 import './Contact.css';
 
 const Contact = () => {
@@ -77,42 +78,39 @@ const Contact = () => {
       <section className="contact-content" id="contact-form">
         <div className="container">
           {/* Top Info Section - Three Columns */}
-          <div className="contact-info-top">
-            <div className="info-card">
-              <div className="info-icon">
-                <FiMapPin />
+          {/* Company Contact Card - Image Design Match */}
+          <div className="company-contact-card">
+            <div className="contact-card-top">
+              <div className="contact-brand">
+                <img src={logo} alt="Surfaux Dye Chem" className="contact-brand-logo" />
               </div>
-              <h3>Come to See Us</h3>
-              <p>
-                Plot No.18,19, Moraji Desai Nagar,<br />
-                Chettipalayam, Gandhi Nagar Post,<br />
-                Tirupur - 641603
-              </p>
+              <div className="contact-address">
+                <h3>SURFAUX DYE CHEM</h3>
+                <p>Plot No.18&19, Moraji Desai Nagar,</p>
+                <p>Chettipalayam (Angeripalayam),</p>
+                <p>Gandhi Nagar Post, Tirupur - 641603</p>
+                <p>Tamilnadu, India</p>
+                <a href="https://www.surfaux.com" target="_blank" rel="noreferrer" className="contact-link">www.surfaux.com</a>
+              </div>
             </div>
 
-            <div className="info-card">
-              <div className="info-icon">
-                <FiPhone />
-              </div>
-              <h3>Quick Contact</h3>
-              <p>
-                Ph: +91 93444 53519<br />
-                Email: erca@sufaux.com
-              </p>
-            </div>
+            <div className="contact-card-divider"></div>
 
-            <div className="info-card">
-              <div className="info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12,6 12,12 16,14"></polyline>
-                </svg>
+            <div className="contact-card-bottom">
+              <div className="partner-brand">
+                <div className="partner-logo">
+                  <span className="infinity-symbol">∞</span>
+                  <span className="erca-text">ERCA</span>
+                </div>
+                <div className="partner-subtitle">TEXTILE CHEMICAL SOLUTIONS</div>
+                <a href="https://www.ercatcs.com" target="_blank" rel="noreferrer" className="contact-link">www.ercatcs.com</a>
               </div>
-              <h3>Office Schedule</h3>
-              <p>
-                Monday to Saturday: 09:00am to 18:00pm<br />
-                Sunday: <span style={{ color: 'var(--accent-green)' }}>Closed</span>
-              </p>
+              <div className="contact-numbers">
+                <p>+91 93444 53519</p>
+                <p>+91 82482 75263</p>
+                <p>+91 98429 10260</p>
+                <p>+91 98422 10260</p>
+              </div>
             </div>
           </div>
 
