@@ -48,6 +48,30 @@
   box-shadow: 0 10px 40px rgba(11, 47, 59, 0.08);
   border: 1px solid rgba(63, 183, 166, 0.15);
   padding: var(--spacing-xl) var(--spacing-xxl);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.company-contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(11, 47, 59, 0.15);
+  border-color: rgba(63, 183, 166, 0.3);
+}
+
+.company-contact-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-green), var(--accent-green));
+  transition: width 0.4s ease;
+}
+
+.company-contact-card:hover::after {
+  width: 100%;
 }
 
 .contact-card-top, .contact-card-bottom {

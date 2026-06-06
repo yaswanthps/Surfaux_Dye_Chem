@@ -123,12 +123,31 @@
   border-radius: var(--border-radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  border: 1px solid transparent;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(11, 47, 59, 0.15);
+  border-color: rgba(63, 183, 166, 0.3);
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-green), var(--accent-green));
+  transition: width 0.4s ease;
+  z-index: 2;
+}
+
+.project-card:hover::after {
+  width: 100%;
 }
 
 .project-image {
@@ -261,9 +280,28 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all var(--transition-normal);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-more-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.learn-more-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .learn-more-btn:hover {
@@ -340,14 +378,17 @@
   background: var(--light-gray);
   border-radius: var(--border-radius-lg);
   position: relative;
-  transition: all var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  border: 1px solid transparent;
 }
 
 .story-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(11, 47, 59, 0.15);
   background: var(--white);
+  border-color: rgba(63, 183, 166, 0.3);
 }
+
 
 .story-number {
   position: absolute;

@@ -74,13 +74,61 @@
   border-radius: var(--border-radius-xl);
   text-align: center;
   box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
 }
 
 .mission-card:hover,
 .vision-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(11, 47, 59, 0.15);
+  border-color: rgba(63, 183, 166, 0.3);
+}
+
+.mission-card::after,
+.vision-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-green), var(--accent-green));
+  transition: width 0.4s ease;
+}
+
+.mission-card:hover::after,
+.vision-card:hover::after {
+  width: 100%;
+}
+
+.mission-card::before,
+.vision-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(63, 183, 166, 0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mission-card:hover::before,
+.vision-card:hover::before {
+  opacity: 1;
+}
+
+.mission-card > *,
+.vision-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .mission-card .card-icon,
@@ -88,6 +136,12 @@
   font-size: 4rem;
   color: var(--accent-green);
   margin-bottom: var(--spacing-lg);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mission-card:hover .card-icon,
+.vision-card:hover .card-icon {
+  transform: scale(1.15) rotate(5deg);
 }
 
 .mission-card .card-title,
@@ -186,19 +240,67 @@
   padding: var(--spacing-xl);
   background: var(--light-gray);
   border-radius: var(--border-radius-lg);
-  transition: all var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
 }
 
 .value-item:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(11, 47, 59, 0.15);
   background: var(--white);
+  border-color: rgba(63, 183, 166, 0.3);
+}
+
+.value-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-green), var(--accent-green));
+  transition: width 0.4s ease;
+}
+
+.value-item:hover::after {
+  width: 100%;
+}
+
+.value-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(63, 183, 166, 0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.value-item:hover::before {
+  opacity: 1;
+}
+
+.value-item > * {
+  position: relative;
+  z-index: 1;
 }
 
 .value-icon {
   font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
   display: block;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.value-item:hover .value-icon {
+  transform: scale(1.15) rotate(5deg);
 }
 
 .value-title {
@@ -274,12 +376,31 @@
   border-radius: var(--border-radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  border: 1px solid transparent;
 }
 
 .team-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(11, 47, 59, 0.15);
+  border-color: rgba(63, 183, 166, 0.3);
+}
+
+.team-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-green), var(--accent-green));
+  transition: width 0.4s ease;
+  z-index: 2;
+}
+
+.team-card:hover::after {
+  width: 100%;
 }
 
 .member-image {
@@ -357,19 +478,67 @@
   padding: var(--spacing-xl);
   background: var(--light-gray);
   border-radius: var(--border-radius-lg);
-  transition: all var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
 }
 
 .cert-item:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(11, 47, 59, 0.15);
   background: var(--white);
+  border-color: rgba(63, 183, 166, 0.3);
+}
+
+.cert-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-green), var(--accent-green));
+  transition: width 0.4s ease;
+}
+
+.cert-item:hover::after {
+  width: 100%;
+}
+
+.cert-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(63, 183, 166, 0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cert-item:hover::before {
+  opacity: 1;
+}
+
+.cert-item > * {
+  position: relative;
+  z-index: 1;
 }
 
 .cert-icon {
   font-size: 3rem;
   color: var(--accent-green);
   margin-bottom: var(--spacing-md);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cert-item:hover .cert-icon {
+  transform: scale(1.15) rotate(5deg);
 }
 
 .cert-item h3 {

@@ -108,8 +108,27 @@
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal), background var(--transition-normal);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease;
   border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.home-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .home-btn-primary {
@@ -119,7 +138,7 @@
 }
 
 .home-btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(18, 80, 84, 0.45);
 }
 
@@ -194,17 +213,94 @@
   padding: 0 30px;
 }
 
+/* Make slick slider cards equal height */
+.slick-track {
+  display: flex !important;
+}
+.slick-slide {
+  height: inherit !important;
+}
+.slick-slide > div {
+  height: 100%;
+}
+
+.app-slide-wrapper {
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .app-slide {
   text-align: center;
-  padding: var(--spacing-lg) 10px;
+  padding: 3rem 2rem;
   display: flex !important;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  background: var(--white);
+  border-radius: var(--border-radius-xl);
+  box-shadow: 0 10px 25px rgba(11, 47, 59, 0.05);
+  border: 1px solid rgba(11, 47, 59, 0.08);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.app-slide:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(11, 47, 59, 0.15);
+  border-color: rgba(63, 183, 166, 0.3);
+}
+
+.app-slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--secondary-green), var(--accent-green));
+  transition: width 0.4s ease;
+}
+
+.app-slide:hover::after {
+  width: 100%;
+}
+
+.app-slide::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(63, 183, 166, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app-slide:hover::before {
+  opacity: 1;
+}
+
+.app-slide > * {
+  position: relative;
+  z-index: 1;
 }
 
 .app-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.app-slide:hover .app-icon {
+  transform: scale(1.15) rotate(8deg);
 }
 
 .app-title {
@@ -287,12 +383,54 @@
   padding: 2rem 1.8rem;
   box-shadow: 0 12px 30px rgba(11, 47, 59, 0.08);
   border: 1px solid rgba(11, 47, 59, 0.06);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 36px rgba(11, 47, 59, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(11, 47, 59, 0.15);
+  border-color: rgba(63, 183, 166, 0.3);
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-green), var(--accent-green));
+  transition: width 0.4s ease;
+}
+
+.feature-card:hover::after {
+  width: 100%;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(63, 183, 166, 0.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .feature-icon {
@@ -306,6 +444,11 @@
   justify-content: center;
   font-size: 1.5rem;
   margin-bottom: 1.2rem;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.15) rotate(5deg);
 }
 
 .feature-title {

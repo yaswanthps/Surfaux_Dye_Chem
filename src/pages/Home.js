@@ -66,9 +66,9 @@ const Home = () => {
     slidesToScroll: 1,
     autoplay: true,
     speed: 4000,
-    autoplaySpeed: 0,
-    cssEase: "linear",
-    pauseOnHover: false,
+    autoplaySpeed: 3000,
+    cssEase: "ease",
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -99,7 +99,7 @@ const Home = () => {
               <span className="home-hero-highlight"> Sustainable Future</span>
             </h1>
             <p className="home-hero-subtitle">
-               Trusted by customers for reliable and sustainable chemical solutions for a better productivity and profitability.
+              Trusted by customers for reliable and sustainable chemical solutions for a better productivity and profitability.
             </p>
             <p className="home-hero-description">
               We deliver advanced chemical manufacturing with a focus on compliance, operational excellence, and eco-conscious performance.
@@ -111,9 +111,9 @@ const Home = () => {
               <Link to="/contact" className="home-btn home-btn-secondary">
                 Contact Us
               </Link>
-            
-              
-              
+
+
+
             </div>
           </div>
         </div>
@@ -125,10 +125,12 @@ const Home = () => {
           <div className="carousel-wrapper">
             <Slider {...sliderSettings}>
               {applicationsData.map(app => (
-                <div key={app.id} className="app-slide">
-                  <div className="app-icon">{app.icon}</div>
-                  <h3 className="app-title">{app.title}</h3>
-                  <p className="app-description">{app.description}</p>
+                <div key={app.id} className="app-slide-wrapper">
+                  <div className="app-slide">
+                    <div className="app-icon">{app.icon}</div>
+                    <h3 className="app-title">{app.title}</h3>
+                    <p className="app-description">{app.description}</p>
+                  </div>
                 </div>
               ))}
             </Slider>
